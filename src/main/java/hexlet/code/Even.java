@@ -18,6 +18,7 @@ public class Even {
         for (int i = 0; i < countRepeat; i++) {
             randomNumber = Math.random() * range + 1;
             System.out.println("Question: " + randomNumber.intValue());
+            System.out.print("Your answer: ");
             answer = sc.nextLine();
             remainder = randomNumber.intValue() % 2;
 
@@ -30,8 +31,8 @@ public class Even {
             if (answer.equals(corectAnswer)) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was");
-                System.out.println("'" + corectAnswer + "'.\nLet's try again, " + name + "!");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + corectAnswer + "'.");
+                System.out.println("Let's try again, " + name + "!");
                 i = countRepeat;
                 breakGame = true;
             }
