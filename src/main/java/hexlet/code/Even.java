@@ -16,7 +16,7 @@ public class Even {
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
 
         for (int i = 0; i < countRepeat; i++) {
-            randomNumber = Math.random() * range;
+            randomNumber = Math.random() * range + 1;
             System.out.println("Question: " + randomNumber.intValue());
             answer = sc.nextLine();
             remainder = randomNumber.intValue() % 2;
