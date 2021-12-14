@@ -1,7 +1,7 @@
 package hexlet.code;
 
 public class Even {
-    public static void startEvenGame(String name) {
+    public static void startGame(String name) {
         final int range = 100; // range 0..100
         final int countRepeat = 3;
 

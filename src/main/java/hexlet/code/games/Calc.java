@@ -1,7 +1,7 @@
 package hexlet.code;
 
 public class Calc {
-    public static void startCalcGame(String name) {
+    public static void startGame(String name) {
         final int countRepeat = 3;
         final int range = 10; // range 0..10
         final int rangeOperation = 3;
