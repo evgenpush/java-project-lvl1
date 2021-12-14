@@ -7,6 +7,7 @@ public class App {
         final int greet = 1;
         final int even = 2;
         final int calc = 3;
+        final int gcd = 4;
         final int exit = 0;
         int id;
         String name;
@@ -15,6 +16,7 @@ public class App {
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         id = sc.nextInt();
@@ -26,6 +28,9 @@ public class App {
         } else if (id == calc) {
             name = Cli.getName();
             Calc.startCalcGame(name);
+        } else if (id == gcd) {
+            name = Cli.getName();
+            Gcd.startGcdGame(name);
         }
     }
 }
