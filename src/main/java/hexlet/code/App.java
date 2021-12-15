@@ -9,6 +9,7 @@ public class App {
         final int calc = 3;
         final int gcd = 4;
         final int progression = 5;
+        final int prime = 6;
         final int exit = 0;
         int id;
         String name;
@@ -19,6 +20,7 @@ public class App {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         id = sc.nextInt();
@@ -36,6 +38,9 @@ public class App {
         } else if (id == progression) {
             name = Cli.getName();
             Progression.startGame(name);
+        } else if (id == prime) {
+            name = Cli.getName();
+            Prime.startGame(name);
         }
     }
 }
