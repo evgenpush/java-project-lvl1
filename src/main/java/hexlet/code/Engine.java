@@ -10,7 +10,7 @@ public class Engine {
     public static boolean step(String[] questions, String[] answers, int count, String name) {
         String answer;
         Scanner sc = new Scanner(System.in);
-        boolean breakGame =false;
+        boolean breakGame = false;
         for (int i = 0; i < count; i++) {
             System.out.println("Question: " + questions[i]);
             System.out.print("Your answer: ");
