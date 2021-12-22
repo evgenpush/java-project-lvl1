@@ -8,6 +8,8 @@ public class Calc {
         int corectAnswer = -1;
         String quest = "";
         boolean breakGame = false;
+        String[] answers = new String[countRepeat];
+        String[] questions = new String[countRepeat];
 
         String mainMes = "What is the result of the expression?";
         Engine.startGame(mainMes);
@@ -23,21 +25,18 @@ public class Calc {
 
             if (operation == 0) {
                 corectAnswer = numberOne + numberTwo;
-                quest = String.valueOf(numberOne) + " + " + String.valueOf(numberTwo);
-
+                questions[i] = String.valueOf(numberOne) + " + " + String.valueOf(numberTwo);
             } else if (operation == 1) {
                 corectAnswer = numberOne - numberTwo;
-                quest = String.valueOf(numberOne) + " - " + String.valueOf(numberTwo);
+                questions[i] = String.valueOf(numberOne) + " - " + String.valueOf(numberTwo);
             } else if (operation == 2) {
                 corectAnswer = numberOne * numberTwo;
-                quest = String.valueOf(numberOne) + " * " + String.valueOf(numberTwo);
+                questions[i] = String.valueOf(numberOne) + " * " + String.valueOf(numberTwo);
             }
-
-            breakGame = Engine.step(String.valueOf(corectAnswer), quest, name);
-            if (breakGame) {
-                i = countRepeat;
-            }
+            answers[i] = String.valueOf(corectAnswer);
         }
+
+        breakGame = Engine.step(questions, answers, countRepeat, name);
         Engine.endGame(breakGame, name);
     }
 }

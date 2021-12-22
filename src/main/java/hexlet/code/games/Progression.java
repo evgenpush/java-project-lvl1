@@ -8,6 +8,8 @@ public class Progression {
         final int max = 10;
         final int min = 5;
         StringBuffer progression = new StringBuffer();
+        String[] answers = new String[countRepeat];
+        String[] questions = new String[countRepeat];
         int count;
         int firstNum;
         int step;
@@ -35,14 +37,14 @@ public class Progression {
                 } else {
                     progression.append(".. ");
                     corectAnswer = firstNum + step * j;
+                    answers[i] = String.valueOf(corectAnswer);
                 }
             }
-            breakGame = Engine.step(String.valueOf(corectAnswer), progression.toString(), name);
+            questions[i] = progression.toString();
             progression.setLength(0);
-            if (breakGame) {
-                i = countRepeat;
-            }
         }
+        breakGame = Engine.step(questions, answers, countRepeat, name);
+
         Engine.endGame(breakGame, name);
     }
 }

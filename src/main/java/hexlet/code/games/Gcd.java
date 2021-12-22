@@ -10,6 +10,8 @@ public class Gcd {
         int divisor = 1;
         final int range = 100;
         final int countRepeat = 3;
+        String[] answers = new String[countRepeat];
+        String[] questions = new String[countRepeat];
         Engine.startGame(mainMes);
 
         for (int j = 0; j < countRepeat; j++) {
@@ -17,7 +19,7 @@ public class Gcd {
             numberOne = randomNumber.intValue();
             randomNumber = Math.random() * range + 1;
             numberTwo = randomNumber.intValue();
-            String quest = String.valueOf(numberOne) + " " + String.valueOf(numberTwo);
+            questions[j] = String.valueOf(numberOne) + " " + String.valueOf(numberTwo);
 
             for (int i = numberOne; i > 0; i--) {
                 if (numberOne % i == 0) {
@@ -27,12 +29,11 @@ public class Gcd {
                     }
                 }
             }
-
-            breakGame = Engine.step(String.valueOf(divisor), quest, name);
-            if (breakGame) {
-                j = countRepeat;
-            }
+            answers[j] = String.valueOf(divisor);
         }
+
+        breakGame = Engine.step(questions, answers, countRepeat, name);
+
         Engine.endGame(breakGame, name);
     }
 }

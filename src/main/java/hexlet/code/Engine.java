@@ -7,21 +7,23 @@ public class Engine {
         System.out.println(mainMes);
     }
 
-    public static boolean step(String corectAnswer, String quest, String name) {
+    public static boolean step(String[] questions, String[] answers, int count, String name) {
         String answer;
-        boolean breakGame = false;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Question: " + quest);
-        System.out.print("Your answer: ");
-        answer = sc.nextLine();
+        boolean breakGame = false;
+        for (int i = 0; i < count; i++) {
+            System.out.println("Question: " + questions[i]);
+            System.out.print("Your answer: ");
+            answer = sc.nextLine();
 
-        if (answer.equals(corectAnswer)) {
-            System.out.println("Correct!");
-        } else {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + corectAnswer + "'.");
-            breakGame = true;
+            if (answer.equals(answers[i])) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + answers[i] + "'.");
+                breakGame = true;
+                i = count;
+            }
         }
-
         return breakGame;
     }
 

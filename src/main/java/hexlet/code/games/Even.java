@@ -4,7 +4,8 @@ public class Even {
     public static void startGame(String name) {
         final int range = 100; // range 0..100
         final int countRepeat = 3;
-
+        String[] answers = new String[countRepeat];
+        String[] questions = new String[countRepeat];
         boolean breakGame = false;
         Double randomNumber;
         int remainder;
@@ -16,19 +17,18 @@ public class Even {
 
             randomNumber = Math.random() * range + 1;
             int number = randomNumber.intValue();
+            questions[i] = String.valueOf(number);
             remainder = number % 2;
 
             if (remainder == 0) {
-                corectAnswer = "yes";
+                answers[i] = "yes";
             } else {
-                corectAnswer = "no";
-            }
-
-            breakGame = Engine.step(corectAnswer, String.valueOf(number), name);
-            if (breakGame) {
-                i = countRepeat;
+                answers[i] = "no";
             }
         }
+
+        breakGame = Engine.step(questions, answers, countRepeat, name);
+
         Engine.endGame(breakGame, name);
     }
 }
