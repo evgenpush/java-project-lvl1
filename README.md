@@ -1,6 +1,8 @@
 ![Java CI](https://github.com/evgenpush/java-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)
 
 <a href="https://codeclimate.com/github/evgenpush/java-project-lvl1"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
+
+[![Github-actions](https://github.com/evgenpush/java-project-lvl1/actions/workflows/github-actions.yml/badge.svg)](https://github.com/evgenpush/java-project-lvl1/actions/workflows/github-actions.yml)
 ---
 <a href="https://asciinema.org/a/5kiB12JhUs4hxZi4BaeWEpZUa" target="_blank"><img src="https://asciinema.org/a/5kiB12JhUs4hxZi4BaeWEpZUa.svg" width="400"/></a>
 <a href="https://asciinema.org/a/JKZllnKzN7up5Zm3tJUj7jTjN" target="_blank"><img src="https://asciinema.org/a/JKZllnKzN7up5Zm3tJUj7jTjN.svg" width="400"/></a>
