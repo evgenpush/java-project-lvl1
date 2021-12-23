@@ -1,4 +1,4 @@
-![Java CI](https://github.com/evgenpush/java-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)
+[![hexlet-check](https://github.com/evgenpush/java-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/evgenpush/java-project-lvl1/actions/workflows/hexlet-check.yml)
 
 <a href="https://codeclimate.com/github/evgenpush/java-project-lvl1"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
 
