@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        final int countRepeat = 3;
         final int greet = 1;
         final int even = 2;
         final int calc = 3;
@@ -28,19 +29,19 @@ public class App {
             name = Cli.getName();
         } else if (id == even) {
             name = Cli.getName();
-            Even.startGame(name);
+            Even.startGame(name, countRepeat);
         } else if (id == calc) {
             name = Cli.getName();
-            Calc.startGame(name);
+            Calc.startGame(name, countRepeat);
         } else if (id == gcd) {
             name = Cli.getName();
-            Gcd.startGame(name);
+            Gcd.startGame(name, countRepeat);
         } else if (id == progression) {
             name = Cli.getName();
-            Progression.startGame(name);
+            Progression.startGame(name, countRepeat);
         } else if (id == prime) {
             name = Cli.getName();
-            Prime.startGame(name);
+            Prime.startGame(name, countRepeat);
         }
     }
 }

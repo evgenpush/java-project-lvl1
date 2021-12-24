@@ -1,27 +1,23 @@
 package hexlet.code;
 
 public class Calc {
-    public static void startGame(String name) {
-        final int countRepeat = 3;
+    public static void startGame(String name, int countRepeat) {
         final int range = 10; // range 0..10
         final int rangeOperation = 3;
         int corectAnswer = -1;
+        int numberOne;
+        int numberTwo;
+        int operation;
         String quest = "";
-        boolean breakGame = false;
         String[] answers = new String[countRepeat];
         String[] questions = new String[countRepeat];
-
         String mainMes = "What is the result of the expression?";
-        Engine.startGame(mainMes);
-        Double randomNumber;
+
         for (int i = 0; i < countRepeat; i++) {
 
-            randomNumber = Math.random() * range + 1;
-            int numberOne = randomNumber.intValue();
-            randomNumber = Math.random() * range + 1;
-            int numberTwo = randomNumber.intValue();
-            randomNumber = Math.random() * rangeOperation;
-            int operation = randomNumber.intValue();
+            numberOne = randomNumber(range + 1).intValue();
+            numberTwo = randomNumber(range + 1).intValue();
+            operation = randomNumber(rangeOperation).intValue();
 
             if (operation == 0) {
                 corectAnswer = numberOne + numberTwo;
@@ -36,7 +32,10 @@ public class Calc {
             answers[i] = String.valueOf(corectAnswer);
         }
 
-        breakGame = Engine.step(questions, answers, countRepeat, name);
-        Engine.endGame(breakGame, name);
+        Engine.play(questions, answers, countRepeat, name, mainMes);
+    }
+
+    public static Double randomNumber(int range) {
+        return Math.random() * range;
     }
 }

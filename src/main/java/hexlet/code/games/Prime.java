@@ -1,17 +1,13 @@
 package hexlet.code;
 
 public class Prime {
-    public static void startGame(String name) {
+    public static void startGame(String name, int countRepeat) {
         String mainMes = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         final int range = 1000;
-        final int countRepeat = 3;
         String[] answers = new String[countRepeat];
         String[] questions = new String[countRepeat];
         int num;
         Double randomNumber;
-        boolean breakGame = false;
-
-        Engine.startGame(mainMes);
 
         for (int j = 0; j < countRepeat; j++) {
             randomNumber = Math.random() * range + 1;
@@ -26,7 +22,6 @@ public class Prime {
             }
         }
 
-        breakGame = Engine.step(questions, answers, countRepeat, name);
-        Engine.endGame(breakGame, name);
+        Engine.play(questions, answers, countRepeat, name, mainMes);
     }
 }

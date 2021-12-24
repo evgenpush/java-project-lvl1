@@ -7,7 +7,8 @@ public class Engine {
         System.out.println(mainMes);
     }
 
-    public static boolean step(String[] questions, String[] answers, int count, String name) {
+    public static void play(String[] questions, String[] answers, int count, String name, String mainMes) {
+        startGame(mainMes);
         String answer;
         Scanner sc = new Scanner(System.in);
         boolean breakGame = false;
@@ -24,7 +25,7 @@ public class Engine {
                 i = count;
             }
         }
-        return breakGame;
+        endGame(breakGame, name);
     }
 
     public static void endGame(Boolean breakGame, String name) {

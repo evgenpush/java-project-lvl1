@@ -1,17 +1,14 @@
 package hexlet.code;
 
 public class Even {
-    public static void startGame(String name) {
+    public static void startGame(String name, int countRepeat) {
         final int range = 100; // range 0..100
-        final int countRepeat = 3;
         String[] answers = new String[countRepeat];
         String[] questions = new String[countRepeat];
-        boolean breakGame = false;
         Double randomNumber;
         int remainder;
         String corectAnswer;
         String mainMes = "Answer 'yes' if number even otherwise answer 'no'.";
-        Engine.startGame(mainMes);
 
         for (int i = 0; i < countRepeat; i++) {
 
@@ -27,8 +24,6 @@ public class Even {
             }
         }
 
-        breakGame = Engine.step(questions, answers, countRepeat, name);
-
-        Engine.endGame(breakGame, name);
+        Engine.play(questions, answers, countRepeat, name, mainMes);
     }
 }

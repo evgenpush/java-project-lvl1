@@ -1,24 +1,18 @@
 package hexlet.code;
 
 public class Gcd {
-    public static void startGame(String name) {
+    public static void startGame(String name, int countRepeat) {
         String mainMes = "Find the greatest common divisor of given numbers.";
         int numberOne;
         int numberTwo;
-        boolean breakGame = false;
-        Double randomNumber;
         int divisor = 1;
         final int range = 100;
-        final int countRepeat = 3;
         String[] answers = new String[countRepeat];
         String[] questions = new String[countRepeat];
-        Engine.startGame(mainMes);
 
         for (int j = 0; j < countRepeat; j++) {
-            randomNumber = Math.random() * range + 1;
-            numberOne = randomNumber.intValue();
-            randomNumber = Math.random() * range + 1;
-            numberTwo = randomNumber.intValue();
+            numberOne = randomNumber(range + 1).intValue();
+            numberTwo = randomNumber(range + 1).intValue();
             questions[j] = String.valueOf(numberOne) + " " + String.valueOf(numberTwo);
 
             for (int i = numberOne; i > 0; i--) {
@@ -32,8 +26,10 @@ public class Gcd {
             answers[j] = String.valueOf(divisor);
         }
 
-        breakGame = Engine.step(questions, answers, countRepeat, name);
+        Engine.play(questions, answers, countRepeat, name, mainMes);
+    }
 
-        Engine.endGame(breakGame, name);
+    public static Double randomNumber(int range) {
+        return Math.random() * range;
     }
 }
