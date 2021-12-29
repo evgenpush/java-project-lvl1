@@ -1,9 +1,13 @@
 package hexlet.code;
 
 public class Calc {
-    public static void startGame(String name, int countRepeat) {
+    public static void startGame() {
+        final int countRepeat = 3;
         final int range = 10; // range 0..10
         final int rangeOperation = 3;
+        final int plus = 0;
+        final int minus = 1;
+        final int umnozh = 2;
         int corectAnswer = -1;
         int numberOne;
         int numberTwo;
@@ -12,20 +16,21 @@ public class Calc {
         String[] answers = new String[countRepeat];
         String[] questions = new String[countRepeat];
         String mainMes = "What is the result of the expression?";
+        String name = Cli.getName();
 
         for (int i = 0; i < countRepeat; i++) {
 
-            numberOne = randomNumber(range + 1).intValue();
-            numberTwo = randomNumber(range + 1).intValue();
-            operation = randomNumber(rangeOperation).intValue();
+            numberOne = Util.randomNumber(range + 1);
+            numberTwo = Util.randomNumber(range + 1);
+            operation = Util.randomNumber(rangeOperation);
 
-            if (operation == 0) {
+            if (operation == plus) {
                 corectAnswer = numberOne + numberTwo;
                 questions[i] = String.valueOf(numberOne) + " + " + String.valueOf(numberTwo);
-            } else if (operation == 1) {
+            } else if (operation == minus) {
                 corectAnswer = numberOne - numberTwo;
                 questions[i] = String.valueOf(numberOne) + " - " + String.valueOf(numberTwo);
-            } else if (operation == 2) {
+            } else if (operation == umnozh) {
                 corectAnswer = numberOne * numberTwo;
                 questions[i] = String.valueOf(numberOne) + " * " + String.valueOf(numberTwo);
             }
@@ -33,9 +38,5 @@ public class Calc {
         }
 
         Engine.play(questions, answers, countRepeat, name, mainMes);
-    }
-
-    public static Double randomNumber(int range) {
-        return Math.random() * range;
     }
 }

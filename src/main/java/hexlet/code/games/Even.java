@@ -1,19 +1,19 @@
 package hexlet.code;
 
 public class Even {
-    public static void startGame(String name, int countRepeat) {
+    public static void startGame() {
+        final int countRepeat = 3;
         final int range = 100; // range 0..100
         String[] answers = new String[countRepeat];
         String[] questions = new String[countRepeat];
-        Double randomNumber;
         int remainder;
         String corectAnswer;
         String mainMes = "Answer 'yes' if number even otherwise answer 'no'.";
+        String name = Cli.getName();
 
         for (int i = 0; i < countRepeat; i++) {
 
-            randomNumber = Math.random() * range + 1;
-            int number = randomNumber.intValue();
+            int number = Util.randomNumber(range) + 1;
             questions[i] = String.valueOf(number);
             remainder = number % 2;
 

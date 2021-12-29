@@ -1,8 +1,9 @@
 package hexlet.code;
 
 public class Progression {
-    public static void startGame(String name, int countRepeat) {
+    public static void startGame() {
         String mainMes = "What number is missing in the progression?";
+        final int countRepeat = 3;
         final int range = 10; // range 0..10
         final int max = 10;
         final int min = 5;
@@ -15,12 +16,13 @@ public class Progression {
         int skipNum;
         int corectAnswer = -1;
         String quest = "";
+        String name = Cli.getName();
 
         for (int i = 0; i < countRepeat; i++) {
-            firstNum = randomNumber(range + 1).intValue();
-            count = randomNumber(max - min).intValue() + min;
-            step = randomNumber(range + 1).intValue();
-            skipNum = randomNumber(count).intValue();
+            firstNum = Util.randomNumber(range) + 1;
+            count = Util.randomNumber(max - min) + min;
+            step = Util.randomNumber(range) + 1;
+            skipNum = Util.randomNumber(count);
 
             for (int j = 0; j < count; j++) {
                 if (skipNum != j) {
@@ -36,9 +38,5 @@ public class Progression {
             progression.setLength(0);
         }
         Engine.play(questions, answers, countRepeat, name, mainMes);
-    }
-
-    public static Double randomNumber(int range) {
-        return Math.random() * range;
     }
 }
