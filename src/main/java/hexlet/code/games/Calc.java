@@ -20,8 +20,8 @@ public class Calc {
 
         for (int i = 0; i < countRepeat; i++) {
 
-            numberOne = Util.randomNumber(range + 1);
-            numberTwo = Util.randomNumber(range + 1);
+            numberOne = Util.randomNumber(range) + 1;
+            numberTwo = Util.randomNumber(range) + 1;
             operation = Util.randomNumber(rangeOperation);
 
             if (operation == plus) {

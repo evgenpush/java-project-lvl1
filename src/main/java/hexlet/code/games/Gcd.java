@@ -13,8 +13,8 @@ public class Gcd {
         String name = Cli.getName();
 
         for (int j = 0; j < countRepeat; j++) {
-            numberOne = Util.randomNumber(range + 1);
-            numberTwo = Util.randomNumber(range + 1);
+            numberOne = Util.randomNumber(range) + 1;
+            numberTwo = Util.randomNumber(range) + 1;
             questions[j] = String.valueOf(numberOne) + " " + String.valueOf(numberTwo);
 
             for (int i = numberOne; i > 0; i--) {
