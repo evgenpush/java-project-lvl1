@@ -14,11 +14,15 @@ public class Prime {
             num = Util.randomNumber(range) + 1;
             questions[j] = String.valueOf(num);
             answers[j] = "yes";
-            for (int i = 2; i < Math.sqrt(num); i++) {
-                if (num % i == 0) {
-                    answers[j] = "no";
-                    i = num;
+            if (num > 1) {
+                for (int i = 2; i < Math.sqrt(num); i++) {
+                    if (num % i == 0) {
+                        answers[j] = "no";
+                        i = num;
+                    }
                 }
+            } else {
+                answers[j] = "no";
             }
         }
         Engine.play(questions, answers, countRepeat, name, mainMes);
