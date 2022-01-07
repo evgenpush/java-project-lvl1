@@ -12,8 +12,7 @@ public class App {
         final int progression = 5;
         final int prime = 6;
         final int exit = 0;
-        int id;
-        String name;
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
@@ -24,9 +23,10 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        id = sc.nextInt();
+
+        int id = sc.nextInt();
         if (id == greet) {
-            name = Cli.getName();
+            Cli.getName();
         } else if (id == even) {
             Even.startGame();
         } else if (id == calc) {
