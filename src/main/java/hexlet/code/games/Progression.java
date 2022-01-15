@@ -1,18 +1,17 @@
 package hexlet.code;
 
 public class Progression {
-    public static void startGame() {
+    public static void startGame(int repetitionCount) {
         String gameRule = "What number is missing in the progression?";
-        final int countRepeat = 3;
-        final int range = 10; // range 0..10
+        final int range = 10;
         final int max = 10;
         final int min = 5;
 
-        String[] answers = new String[countRepeat];
-        String[] questions = new String[countRepeat];
+        String[] answers = new String[repetitionCount];
+        String[] questions = new String[repetitionCount];
         String name = Cli.getName();
 
-        for (int i = 0; i < countRepeat; i++) {
+        for (int i = 0; i < repetitionCount; i++) {
             int firstNumber = Util.getRandomNumber(range) + 1;
             int count = Util.getRandomNumber(max - min) + min;
             int step = Util.getRandomNumber(range) + 1;
@@ -21,7 +20,7 @@ public class Progression {
             answers[i] = getAnswer(firstNumber, step, skipNumber);
             questions[i] = getQuestion(firstNumber, step, skipNumber, count);
         }
-        Engine.play(questions, answers, countRepeat, name, gameRule);
+        Engine.play(questions, answers, repetitionCount, name, gameRule);
     }
 
     public static String getQuestion(int firstNumber, int step, int skipNumber, int count) {

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-
+        final int repetitionCount = 3;
         final int greet = 1;
         final int even = 2;
         final int calc = 3;
@@ -28,15 +28,15 @@ public class App {
         if (id == greet) {
             Cli.getName();
         } else if (id == even) {
-            Even.startGame();
+            Even.startGame(repetitionCount);
         } else if (id == calc) {
-            Calc.startGame();
+            Calc.startGame(repetitionCount);
         } else if (id == gcd) {
-            Gcd.startGame();
+            Gcd.startGame(repetitionCount);
         } else if (id == progression) {
-            Progression.startGame();
+            Progression.startGame(repetitionCount);
         } else if (id == prime) {
-            Prime.startGame();
+            Prime.startGame(repetitionCount);
         }
     }
 }

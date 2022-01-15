@@ -5,16 +5,16 @@ public class Calc {
     private static final int MINUS = 1;
     private static final int MULTIPLY = 2;
 
-    public static void startGame() {
-        final int countRepeat = 3;
+    public static void startGame(int repetitionCount) {
+
         final int range = 10;
         final int rangeOperation = 3;
-        String[] answers = new String[countRepeat];
-        String[] questions = new String[countRepeat];
+        String[] answers = new String[repetitionCount];
+        String[] questions = new String[repetitionCount];
         String gameRule = "What is the result of the expression?";
         String name = Cli.getName();
 
-        for (int i = 0; i < countRepeat; i++) {
+        for (int i = 0; i < repetitionCount; i++) {
 
             int numberOne = Util.getRandomNumber(range) + 1;
             int numberTwo = Util.getRandomNumber(range) + 1;
@@ -24,7 +24,7 @@ public class Calc {
             questions[i] = getQuestion(operation, numberOne, numberTwo);
         }
 
-        Engine.play(questions, answers, countRepeat, name, gameRule);
+        Engine.play(questions, answers, repetitionCount, name, gameRule);
     }
 
     public static String getAnswer(int operation, int numberOne, int numberTwo) {
