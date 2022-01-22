@@ -9,22 +9,24 @@ public class Calc {
 
         final int range = 10;
         final int rangeOperation = 3;
-        String[] answers = new String[repetitionCount];
-        String[] questions = new String[repetitionCount];
+        final int quest = 0;
+        final int answer = 1;
+        final int amountMas = 2;
+        String[][] questionsAndAnswers = new String[amountMas][repetitionCount];
         String gameRule = "What is the result of the expression?";
-        String name = Cli.getName();
+
 
         for (int i = 0; i < repetitionCount; i++) {
 
-            int numberOne = Util.getRandomNumber(range) + 1;
-            int numberTwo = Util.getRandomNumber(range) + 1;
-            int operation = Util.getRandomNumber(rangeOperation);
+            int numberOne = Util.getRandomNumber(1, range);
+            int numberTwo = Util.getRandomNumber(1, range);
+            int operation = Util.getRandomNumber(0, rangeOperation);
 
-            answers[i] = getAnswer(operation, numberOne, numberTwo);
-            questions[i] = getQuestion(operation, numberOne, numberTwo);
+            questionsAndAnswers[answer][i] = getAnswer(operation, numberOne, numberTwo);
+            questionsAndAnswers[quest][i] = getQuestion(operation, numberOne, numberTwo);
         }
 
-        Engine.play(questions, answers, repetitionCount, name, gameRule);
+        Engine.play(questionsAndAnswers, repetitionCount, gameRule);
     }
 
     public static String getAnswer(int operation, int numberOne, int numberTwo) {

@@ -4,18 +4,19 @@ public class Gcd {
     public static void startGame(int repetitionCount) {
         String gameRule = "Find the greatest common divisor of given numbers.";
         final int range = 100;
-        String[] answers = new String[repetitionCount];
-        String[] questions = new String[repetitionCount];
-        String name = Cli.getName();
+        final int quest = 0;
+        final int answer = 1;
+        final int amountMas = 2;
+        String[][] questionsAndAnswers = new String[amountMas][repetitionCount];
 
         for (int j = 0; j < repetitionCount; j++) {
-            int numberOne = Util.getRandomNumber(range) + 1;
-            int numberTwo = Util.getRandomNumber(range) + 1;
-            questions[j] = getQuestion(numberOne, numberTwo);
-            answers[j] = getAnswer(numberOne, numberTwo);
+            int numberOne = Util.getRandomNumber(1, range);
+            int numberTwo = Util.getRandomNumber(1, range);
+            questionsAndAnswers[quest][j] = getQuestion(numberOne, numberTwo);
+            questionsAndAnswers[answer][j] = getAnswer(numberOne, numberTwo);
         }
 
-        Engine.play(questions, answers, repetitionCount, name, gameRule);
+        Engine.play(questionsAndAnswers, repetitionCount, gameRule);
     }
 
     public static String getQuestion(int numberOne, int numberTwo) {

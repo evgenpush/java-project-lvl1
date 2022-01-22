@@ -4,17 +4,18 @@ public class Prime {
     public static void startGame(int repetitionCount) {
         String gameRule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         final int range = 1000;
-        String[] answers = new String[repetitionCount];
-        String[] questions = new String[repetitionCount];
-        String name = Cli.getName();
+        final int quest = 0;
+        final int answer = 1;
+        final int amountMas = 2;
+        String[][] questionsAndAnswers = new String[amountMas][repetitionCount];
 
         for (int j = 0; j < repetitionCount; j++) {
-            int randomNumber = Util.getRandomNumber(range) + 1;
-            questions[j] = getQuestion(randomNumber);
-            answers[j] = getAnswer(randomNumber);
+            int randomNumber = Util.getRandomNumber(1, range);
+            questionsAndAnswers[quest][j] = getQuestion(randomNumber);
+            questionsAndAnswers[answer][j] = getAnswer(randomNumber);
 
         }
-        Engine.play(questions, answers, repetitionCount, name, gameRule);
+        Engine.play(questionsAndAnswers, repetitionCount, gameRule);
     }
 
     public static String getQuestion(int number) {
@@ -30,15 +31,15 @@ public class Prime {
     }
 
     public static boolean isPrimeNumber(int number) {
-        if (number > 1) {
+        if (number < 2) {
+            return false;
+        } else {
             for (int i = 2; i <= Math.sqrt(number); i++) {
                 if (number % i == 0) {
                     return false;
                 }
             }
             return true;
-        } else {
-            return false;
         }
     }
 }

@@ -7,20 +7,21 @@ public class Progression {
         final int max = 10;
         final int min = 5;
 
-        String[] answers = new String[repetitionCount];
-        String[] questions = new String[repetitionCount];
-        String name = Cli.getName();
+        final int quest = 0;
+        final int answer = 1;
+        final int amountMas = 2;
+        String[][] questionsAndAnswers = new String[amountMas][repetitionCount];
 
         for (int i = 0; i < repetitionCount; i++) {
-            int firstNumber = Util.getRandomNumber(range) + 1;
-            int count = Util.getRandomNumber(max - min) + min;
-            int step = Util.getRandomNumber(range) + 1;
-            int skipNumber = Util.getRandomNumber(count);
+            int firstNumber = Util.getRandomNumber(1, range);
+            int count = Util.getRandomNumber(min, max);
+            int step = Util.getRandomNumber(1, range);
+            int skipNumber = Util.getRandomNumber(0, count);
 
-            answers[i] = getAnswer(firstNumber, step, skipNumber);
-            questions[i] = getQuestion(firstNumber, step, skipNumber, count);
+            questionsAndAnswers[answer][i] = getAnswer(firstNumber, step, skipNumber);
+            questionsAndAnswers[quest][i] = getQuestion(firstNumber, step, skipNumber, count);
         }
-        Engine.play(questions, answers, repetitionCount, name, gameRule);
+        Engine.play(questionsAndAnswers, repetitionCount, gameRule);
     }
 
     public static String getQuestion(int firstNumber, int step, int skipNumber, int count) {

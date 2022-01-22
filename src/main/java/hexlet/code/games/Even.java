@@ -3,18 +3,19 @@ package hexlet.code;
 public class Even {
     public static void startGame(int repetitionCount) {
         final int range = 100;
-        String[] answers = new String[repetitionCount];
-        String[] questions = new String[repetitionCount];
+        final int amountMas = 2;
+        final int quest = 0;
+        final int answer = 1;
+        String[][] questionsAndAnswers = new String[amountMas][repetitionCount];
         String gameRule = "Answer 'yes' if number even otherwise answer 'no'.";
-        String name = Cli.getName();
 
         for (int i = 0; i < repetitionCount; i++) {
-            int randomNumber = Util.getRandomNumber(range) + 1;
-            questions[i] = getQuestion(randomNumber);
-            answers[i] = getAnswer(randomNumber);
+            int randomNumber = Util.getRandomNumber(1, range);
+            questionsAndAnswers[quest][i] = getQuestion(randomNumber);
+            questionsAndAnswers[answer][i] = getAnswer(randomNumber);
         }
 
-        Engine.play(questions, answers, repetitionCount, name, gameRule);
+        Engine.play(questionsAndAnswers, repetitionCount, gameRule);
     }
 
     public static String getQuestion(int randomNumber) {
