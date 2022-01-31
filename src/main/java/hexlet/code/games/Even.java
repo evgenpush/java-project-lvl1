@@ -1,21 +1,21 @@
 package hexlet.code;
 
 public class Even {
-    public static void startGame(int repetitionCount) {
+    public static void startGame() {
         final int range = 100;
         final int amountMas = 2;
         final int quest = 0;
         final int answer = 1;
-        String[][] questionsAndAnswers = new String[amountMas][repetitionCount];
+        String[][] questionsAndAnswers = new String[Engine.NUMBER_OF_REPET][amountMas];
         String gameRule = "Answer 'yes' if number even otherwise answer 'no'.";
 
-        for (int i = 0; i < repetitionCount; i++) {
+        for (int i = 0; i < Engine.NUMBER_OF_REPET; i++) {
             int randomNumber = Util.getRandomNumber(1, range);
-            questionsAndAnswers[quest][i] = getQuestion(randomNumber);
-            questionsAndAnswers[answer][i] = getAnswer(randomNumber);
+            questionsAndAnswers[i][quest] = getQuestion(randomNumber);
+            questionsAndAnswers[i][answer] = getAnswer(randomNumber);
         }
 
-        Engine.play(questionsAndAnswers, repetitionCount, gameRule);
+        Engine.play(questionsAndAnswers, gameRule);
     }
 
     public static String getQuestion(int randomNumber) {

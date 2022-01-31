@@ -1,21 +1,21 @@
 package hexlet.code;
 
 public class Prime {
-    public static void startGame(int repetitionCount) {
+    public static void startGame() {
         String gameRule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         final int range = 1000;
         final int quest = 0;
         final int answer = 1;
         final int amountMas = 2;
-        String[][] questionsAndAnswers = new String[amountMas][repetitionCount];
+        String[][] questionsAndAnswers = new String[Engine.NUMBER_OF_REPET][amountMas];
 
-        for (int j = 0; j < repetitionCount; j++) {
+        for (int j = 0; j < Engine.NUMBER_OF_REPET; j++) {
             int randomNumber = Util.getRandomNumber(1, range);
-            questionsAndAnswers[quest][j] = getQuestion(randomNumber);
-            questionsAndAnswers[answer][j] = getAnswer(randomNumber);
+            questionsAndAnswers[j][quest] = getQuestion(randomNumber);
+            questionsAndAnswers[j][answer] = getAnswer(randomNumber);
 
         }
-        Engine.play(questionsAndAnswers, repetitionCount, gameRule);
+        Engine.play(questionsAndAnswers, gameRule);
     }
 
     public static String getQuestion(int number) {

@@ -1,22 +1,22 @@
 package hexlet.code;
 
 public class Gcd {
-    public static void startGame(int repetitionCount) {
+    public static void startGame() {
         String gameRule = "Find the greatest common divisor of given numbers.";
         final int range = 100;
         final int quest = 0;
         final int answer = 1;
         final int amountMas = 2;
-        String[][] questionsAndAnswers = new String[amountMas][repetitionCount];
+        String[][] questionsAndAnswers = new String[Engine.NUMBER_OF_REPET][amountMas];
 
-        for (int j = 0; j < repetitionCount; j++) {
+        for (int j = 0; j < Engine.NUMBER_OF_REPET; j++) {
             int numberOne = Util.getRandomNumber(1, range);
             int numberTwo = Util.getRandomNumber(1, range);
-            questionsAndAnswers[quest][j] = getQuestion(numberOne, numberTwo);
-            questionsAndAnswers[answer][j] = getAnswer(numberOne, numberTwo);
+            questionsAndAnswers[j][quest] = getQuestion(numberOne, numberTwo);
+            questionsAndAnswers[j][answer] = getAnswer(numberOne, numberTwo);
         }
 
-        Engine.play(questionsAndAnswers, repetitionCount, gameRule);
+        Engine.play(questionsAndAnswers, gameRule);
     }
 
     public static String getQuestion(int numberOne, int numberTwo) {

@@ -5,28 +5,28 @@ public class Calc {
     private static final int MINUS = 1;
     private static final int MULTIPLY = 2;
 
-    public static void startGame(int repetitionCount) {
+    public static void startGame() {
 
         final int range = 10;
         final int rangeOperation = 3;
         final int quest = 0;
         final int answer = 1;
         final int amountMas = 2;
-        String[][] questionsAndAnswers = new String[amountMas][repetitionCount];
+        String[][] questionsAndAnswers = new String[Engine.NUMBER_OF_REPET][amountMas];
         String gameRule = "What is the result of the expression?";
 
 
-        for (int i = 0; i < repetitionCount; i++) {
+        for (int i = 0; i < Engine.NUMBER_OF_REPET; i++) {
 
             int numberOne = Util.getRandomNumber(1, range);
             int numberTwo = Util.getRandomNumber(1, range);
             int operation = Util.getRandomNumber(0, rangeOperation);
 
-            questionsAndAnswers[answer][i] = getAnswer(operation, numberOne, numberTwo);
-            questionsAndAnswers[quest][i] = getQuestion(operation, numberOne, numberTwo);
+            questionsAndAnswers[i][answer] = getAnswer(operation, numberOne, numberTwo);
+            questionsAndAnswers[i][quest] = getQuestion(operation, numberOne, numberTwo);
         }
 
-        Engine.play(questionsAndAnswers, repetitionCount, gameRule);
+        Engine.play(questionsAndAnswers, gameRule);
     }
 
     public static String getAnswer(int operation, int numberOne, int numberTwo) {
